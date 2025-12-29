@@ -24,13 +24,37 @@ console.log(Math.abs(-8));
 // auto adjust higher value
 console.log(Math.round(4.7));
 
-// max value
+// higher value
 console.log(Math.ceil(4.6));
 
-// min value
+// lower value
 console.log(Math.floor(4.6));
 
+// min and max 
+const arr=Math.min(1,2,3,4);
+const arr2=Math.max(1,2,3,4);
+console.log(`Min value is ${arr} and Max value is ${arr2}`);
 // random value 0 - 1
 const min=10;
 const max=20;
 console.log(Math.round(Math.random()*(max-min+1))+min);
+
+// output
+/* 
+
+
+@kedgit ➜ /workspaces/Learn_Javascript (main) $ node basics/numandmaths.js
+400
+[Number: 100]
+100.00
+1.1e+2
+10,00,000
+Object [Math] {}
+8
+5
+5
+4
+Min value is 1 and Max value is 4
+13
+
+*/
