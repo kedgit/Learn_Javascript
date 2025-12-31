@@ -1,3 +1,4 @@
+
 // Symbol for uniquely identify variable
 const mykey=Symbol("key1")
 // object
@@ -11,22 +12,22 @@ const obj={
     "loca_tion":"india"
 }
 
-// // array of values from object
-// console.log(Array.of(Array.from(Object.values(obj)) , Array.from(Object.keys(obj))))
+// array of values from object
+console.log(Array.of(Array.from(Object.values(obj)) , Array.from(Object.keys(obj))))
 
-// // array of keys from object
-// console.log(Array.from(Object.keys(obj)))
+// array of keys from object
+console.log(Array.from(Object.keys(obj)))
 
-// console.log(obj["age"])
-// console.log(obj.name);
-// console.log(obj.loca_tion);
+console.log(obj["age"])
+console.log(obj.name);
+console.log(obj.loca_tion);
 
-// // access symbol key value
-// console.log(obj[mykey])
-// // freeze object from ovveride
-// Object.freeze(obj)
-// obj.name="shiva"
-// console.log(obj)
+// access symbol key value
+console.log(obj[mykey])
+// freeze object from ovveride
+Object.freeze(obj)
+obj.name="shiva"
+console.log(obj)
 
 obj.gretting= function(){
     console.log("hello js")
