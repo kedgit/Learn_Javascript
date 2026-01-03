@@ -65,3 +65,23 @@ const users=[
 ]
 console.log(users[1].value);
 
+// de-structure object for repeated use of same property
+
+const player={
+    name:"rohit",
+    team:"mimbai",
+    match:34
+}
+
+// instead of this use de-structure of object
+console.log(player.match);
+console.log(player.match);
+
+// de-structure
+const score=player.match 
+console.log(score)
+// or 
+
+const {match}=player
+
+console.log(match)
