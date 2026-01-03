@@ -80,8 +80,11 @@ console.log(player.match);
 // de-structure
 const score=player.match 
 console.log(score)
-// or 
+
+// or second
 
 const {match}=player
+const {name}=player
 
 console.log(match)
+console.log(name);
