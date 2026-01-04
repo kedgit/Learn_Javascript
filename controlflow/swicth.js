@@ -25,3 +25,13 @@ else{
     console.log("false");
     
 }
+// check object is empty
+const user={1:"hi"}
+if((Object.keys(user)).length==0){
+    console.log("empty");
+    
+}
+else{
+    console.log("no");
+    
+}
