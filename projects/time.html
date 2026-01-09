@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            justify-items: center;
+        }
+
+        #clock {
+            border: 2px black;
+            background-color: orange;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        #date {
+            border: 2px black;
+            background-color: orange;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h2>Your Local Time</h2>
+        <div id="clock"></div>
+        <h2>Your Local date</h2>
+        <div id="date"></div>
+    </div>
+
+    <script>
+        const clock = document.getElementById("clock")
+        let datee = new Date();
+
+        const date = document.getElementById("date")
+        date.innerHTML = datee.toLocaleDateString()
+
+        // setInterval to controlevent to auto run after interval
+        setInterval(function () {
+            let time = new Date();
+            console.log(time.toLocaleTimeString());
+            clock.innerHTML = time.toLocaleTimeString()
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
