@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            border: 2px;
+            border-radius: 10px;
+            padding: 50px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div id="parent">
+            <button class="button" id="btn1">A</button>
+            <button class="button" id="btn2">B</button>
+            <button class="button" id="btn3">C</button>
+            <button class="button" id="btn4">D</button>
+            <a id="link" href="https://www.google.com">google</a>
+        </div>
+    </div>
+
+
+    <script>
+        // less features
+        // document.getElementById("btn1").onclick=function(){
+        //     alert("btn 1")
+        // }
+
+        // for main third parameter take true or false and decide propogation (capturing if true or bubbling if false)
+
+        // document.getElementById('parent').addEventListener('click',function(){
+        //     console.log("clicked inside parent")
+
+        // })
+
+        // // highe features
+        // document.getElementById('btn2').addEventListener('click', function (e) {
+        //     console.log("clicked btn2");
+        //     // stop or prevent parent execution or bubbling
+        //     e.stopPropagation()
+        // })
+
+        // document.getElementById('link').addEventListener('click',function(e){
+        //     console.log("google clicked")
+        //     // prevent default action 
+        //     e.preventDefault()
+        //     e.stopPropagation()
+        // })
+
+        document.querySelector('#parent').addEventListener('click', function (e) {
+            // just confirm target parentnode by ( e.target.parentNode)
+
+            e.preventDefault()
+            console.log(e.target)
+            console.log(e.target.id)
+            console.log(e.target.parentNode)
+            console.log(e.target.tagName)
+            console.log(e.target.innerText);
+            
+            if(e.target.tagName==="BUTTON"){
+                let item = e.target
+                item.remove()
+            }
+            
+        }, false)
+
+    </script>
+
+
+</body>
+
+</html>

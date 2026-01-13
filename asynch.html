@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">
+        Stop
+    </button>
+
+    <script>
+        
+        const saykedar = function() {
+            document.querySelector("h1").innerHTML = "best js course";
+        }
+
+        const cahnge= setTimeout(saykedar, 2000); // Correct! Runs after 5 seconds
+        document.querySelector("#stop").addEventListener("click",function(){
+            clearTimeout(cahnge)
+            console.log("Stopped")
+        })
+    </script>
+</body>
+</html>

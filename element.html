@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  style="background-color: black; color: aliceblue;">
+    
+<script>
+    const div=document.createElement('div')
+    console.log(div)
+    div.className="main"
+    div.id=Math.random()*10
+    div.setAttribute("title","generated")
+    // add text by two way
+    // 1.  directlt fetch and ovverride text
+    // div.innerHTML="kedar mhetre"
+    // 2. directly set text by create newTextNode
+    const textnode=document.createTextNode("hey babe")
+    // then append 
+    div.appendChild(textnode)
+    document.body.appendChild(div)
+</script>
+</body>
+</html>

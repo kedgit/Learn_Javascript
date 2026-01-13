@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Mallu are you Lion ?</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+        let inter;
+        const randomColor=function(){
+            const hex="0123456789ABCDEF"
+            let color="#"
+            for(let i=0;i<6;i++){
+                color+=hex[Math.floor(Math.random()*16)]
+            }
+            return color;
+        }
+
+        // method
+        const changeColor=function(){
+            if(!inter)
+                inter=setInterval(autochange,1000)
+            function autochange(){
+                document.body.style.backgroundColor=randomColor()
+            }
+        }
+
+        // method
+        const stopchangeColor=function(){
+            clearInterval(inter)
+            // after clear interval then clean it by assigning null
+            inter=null
+        }
+
+        document.querySelector("#start").addEventListener("click",changeColor)
+        
+        
+        document.querySelector("#stop").addEventListener("click",stopchangeColor)
+        
+        console.log(randomColor())
+    </script>
+</body>
+</html>
