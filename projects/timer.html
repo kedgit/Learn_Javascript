@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <h1> Set Timer </h1>
+    <h2 id="display">00:00</h2>
+    <label>Time: </label><input id="min" type="number" placeholder="Enter Time To Set In Minutes"><br><br>
+    
+    <button onclick="starttimer()">
+        Strat
+    </button>
+    <button onclick="stoptimer()">
+        Stop
+    </button>
+    <button onclick="resettimer()">
+        Restart
+    </button>
+    <script>
+
+        let time=0;
+        let timer=null
+        function starttimer(){
+            if(timer!==null) return;
+
+            if(time===0){
+                const min=document.getElementById("min").value
+                if(!min || min<=0){
+                    alert("Please enter valid input !")
+                    return
+                }
+                time=min*60
+            }
+
+            timer=setInterval( ()=>{
+                
+                if(time<=0){
+                    clearInterval(timer)
+                    timer=null
+                    alert("Time Up !")
+                    return
+                }
+                time--
+                let m=Math.floor(time/60)
+                let s=(time%60)
+                document.getElementById("display").innerText=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")
+            },1000)
+        }
+
+        function stoptimer(){
+            clearInterval(timer)
+            timer=null
+        }
+
+        function resettimer(){
+            stoptimer()
+            time=0
+            document.getElementById("display").innerText="00:00"
+            document.getElementById("min").value=""
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <h2>StopWatch</h2>
+    <h2 id="watch">05:00</h2>
+
+    <button onclick="start()">Start</button>
+    <button onclick="pause()">Stop</button>
+    <button onclick="restart()">Restart</button>
+
+    <script>
+        let time = 1 * 60;
+        let timer = null;
+
+        function start() {
+            if (timer !== null) return;
+
+            timer = setInterval(() => {
+                if (time <= 0) {
+                    clearInterval(timer);
+                    timer = null;
+                    alert("Time Up");
+                    return;
+                }
+
+                time--;
+
+                let m = Math.floor(time / 60);
+                let s = time % 60;
+
+                document.getElementById('watch').innerText =
+                    String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+            }, 1000);
+        }
+
+        function pause() {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function restart() {
+            pause();
+            time = 5 * 60;
+            document.getElementById('watch').innerText = "05:00";
+        }
+    </script>
+</body>
+</html>

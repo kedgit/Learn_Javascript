@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- old XML Http Request
+The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+-->
+<button id="followers">Followers</button>
+<div class="main">0</div>
+
+<button id="takerepo">Public Repos Count</button>
+<div class="repo">0</div>
+
+<script>
+    const url='https://api.github.com/users/hiteshchoudhary'
+    const xhr=new XMLHttpRequest();
+    const div=document.querySelector('.main')
+    const repodiv=document.querySelector('.repo')
+    let data;
+    
+    // state
+    console.log(xhr.readyState);
+    console.log("UNSENT");
+    
+    
+    // send request or called
+    xhr.open('GET',url)
+    // track state of api request
+    console.log(xhr.readyState)
+    console.log("OPENED");
+    
+    // contineously track status by calling onreadystatechange
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState===2){
+            console.log("HEADER RECEIVED");
+            
+        }
+        else if(xhr.readyState===3){
+            console.log("LOADING");
+            
+        }
+        else{
+            console.log("DONE");
+            data=JSON.parse(this.responseText)
+            console.log(data)
+            // if want safe access within block or after status DONE
+            // get automatic when login user
+            setTimeout(function(){
+    
+            div.innerHTML=data.followers
+            repodiv.innerText=data.public_repos
+            
+            },2000)
+        }
+    }
+    // send your request to server
+     xhr.send()
+
+    // console.log(xhr.readyState)
+
+    
+    
+    // // after click get followers and repos
+    //     document.querySelector("#followers").addEventListener("click",function(){
+    //         div.innerHTML=data.followers
+    // })
+
+    //     document.querySelector("#takerepo").addEventListener("click",function(){
+    //         repodiv.innerHTML=data.public_repos
+    // })
+
+
+</script>
+</body>
+</html>
