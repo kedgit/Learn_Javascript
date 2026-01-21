@@ -24,25 +24,25 @@
 // })
 
 // second way create promise
-// new Promise((resolve,reject)=>{
-//     setTimeout(()=>{
-//         console.log("order product");
-//         let product="watch"
-//         let payment="done"
-//         if(payment=="done")
-//             resolve(product)
-//         else
-//             reject(product)
-//     },1000)
-// }).then((product)=>{
-//     console.log(product,"Order Succesful"); 
-// }).catch((product)=>{
-//     console.log(product,"Order Canceled");
+new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        console.log("order product");
+        let product="watch"
+        let payment="done"
+        if(payment=="done")
+            resolve(product)
+        else
+            reject(product)
+    },1000)
+}).then((product)=>{
+    console.log(product,"Order Succesful"); 
+}).catch((product)=>{
+    console.log(product,"Order Canceled");
     
-// }).finally(()=>{
-//     console.log("Visit Again ! Thank You !");
+}).finally(()=>{
+    console.log("Visit Again ! Thank You !");
     
-// })
+})
 
 // const mypromise=new Promise( (resolve,reject)=>{
 //     setTimeout( ()=>{
@@ -78,6 +78,7 @@
 // }
 // getGithubInfo()
 
+// task add to microtask queue/priority queue
 fetch('https://api.github.com/users/kedgit')
 .then( (response) =>{
     if(!response.ok){
@@ -85,5 +86,5 @@ fetch('https://api.github.com/users/kedgit')
     } 
     return response.json()
 })
-.then( (data)=> console.log(data.login))
+.then( (data)=> console.log(data))
 .catch((error)=> console.log(error));
